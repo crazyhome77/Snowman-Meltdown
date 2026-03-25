@@ -12,18 +12,13 @@ def get_random_word():
 
 def display_game_state(mistakes, secret_word, guessed_letters):
     """Zeigt den Fortschritt des Schneemannes und des Wortes an."""
+    print("\n" + "=" * 30)
     print(STAGES[mistakes])
-
-    display_word = ""
-    for letter in secret_word:
-        if letter in guessed_letters:
-            display_word += letter + " "
-        else:
-            display_word += "_ "
-
-    print("Wort: ", display_word)
-    print(f"Bisher geraten: {', '.join(guessed_letters)}")
-    print("-" * 20)
+    display_word = " ".join([letter if letter in guessed_letters else "_" for letter in secret_word])
+    print(f"Wort: {display_word}")
+    print(f"Fehler: {mistakes} / {len(STAGES) - 1}")
+    print(f"Geratene Buchstaben: {', '.join(guessed_letters)}")
+    print("=" * 30 + "\n")
 
 
 def play_game():
