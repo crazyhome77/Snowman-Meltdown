@@ -38,7 +38,7 @@ def play_game():
     while mistakes < max_mistakes:
         display_game_state(mistakes, secret_word, guessed_letters)
 
-        guess = input("Rate einen Buchstaben: ").lower()
+        guess = input("Rate einen Buchstaben: ").lower().strip()
 
         # Validierung Buchstaben
         if len(guess) != 1 or not guess.isalpha():
