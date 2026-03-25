@@ -63,6 +63,13 @@ def play_game():
     print("Oje, der Schneemann ist geschmolzen...")
     print(f"Das Wort war: {secret_word}")
 
+def main():
+    while True:
+        play_game()
+        again = input("Noch einmal spielen? (ja/nein): ").lower().strip()
+        if again not in ["ja", "j", "yes", "y"]:
+            print("Danke fürs Spielen!")
+            break
 
 if __name__ == "__main__":
-    play_game()
+    main()
